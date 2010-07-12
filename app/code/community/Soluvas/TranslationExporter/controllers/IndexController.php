@@ -30,6 +30,9 @@ class Soluvas_TranslationExporter_IndexController
 		$this->_title($this->__('System'))->_title($this->__('Tools'))->_title('Translation Exporter');
 
         $this->loadLayout();
+//        $this->getLayout()->getBlock('content')->append(
+//            $this->getLayout()->createBlock('customer/account_dashboard')
+//        );
         $this->_setActiveMenu('system/tools');
         $this->renderLayout();
 	}
@@ -86,7 +89,7 @@ class Soluvas_TranslationExporter_IndexController
 		        // 3. WRITE
 		        $targetDir = Mage::getBaseDir('var') . '/translations/' . $translate->getLocale();
 		        if (!file_exists($targetDir)) {
-		        	if (!mkdir($targetDir, 0755, true)) {
+		        	if (!mkdir($targetDir, null, true)) {
 						throw new Exception("Cannot create $targetDir");		        		
 		        	}
 		        }
